@@ -1,3 +1,31 @@
 ﻿@inherits LayoutComponentBase
+<MudThemeProvider Theme="_theme"/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
 
-<main> @Body </main>
+<MudLayout>
+    <header>
+        <MudAppBar Fixed="true" Dense="true" Color="Color.Default"/>
+    </header>
+    <MudContainer>
+        <main>
+            @Body
+        </main>
+    </MudContainer>
+    <footer>
+        
+    </footer>
+</MudLayout> 
+@code
+{
+    private readonly MudTheme _theme = new MudTheme()
+    {
+        Typography = new Typography()
+        {
+            Default = new Default()
+            {
+                FontFamily = new[] { "Fira Code", "Poppins", "Helvetica", "Arial", "sans-serif" }
+            }
+        }
+    };
+}
